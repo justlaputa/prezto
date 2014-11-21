@@ -14,9 +14,9 @@
 zstyle -s ':prezto:module:git:log:medium' format '_git_log_medium_format' \
   || _git_log_medium_format='%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
 zstyle -s ':prezto:module:git:log:oneline' format '_git_log_oneline_format' \
-  || _git_log_oneline_format='%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n'
+  || _git_log_oneline_format='%C(auto)%h -%d %s %C(green)(%cr) %C(bold blue)<%an>'
 zstyle -s ':prezto:module:git:log:brief' format '_git_log_brief_format' \
-  || _git_log_brief_format='%C(green)%h%C(reset) %s%n%C(blue)(%ar by %an)%C(red)%d%C(reset)%n'
+  || _git_log_brief_format='%C(auto)%h%d %s%n(%C(green)%cr %C(reset)by %C(bold blue)<%an>%C(reset))'
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
@@ -271,4 +271,12 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gwC='git clean -f'
   alias gwx='git rm -r'
   alias gwX='git rm -rf'
+
+  # My alias
+  alias gst='git status'
+  alias gsn='git status --untracked-files=no'
+  alias gau='git add --update'
+  alias gdf='git diff --no-ext-diff'
+  alias gdw='git diff --no-ext-diff --word-diff=color'
+  alias gdc='git diff --no-ext-diff --cached'
 fi

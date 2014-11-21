@@ -245,3 +245,17 @@ function noremoteglob {
   esac; done
   command $cmd "${(@)argo}"
 }
+
+# My alias
+alias -g 'df'='df -hP | column -t'
+alias -g 'dh'='du -h --max-depth=1 | sort -hr'
+alias -g 'rsync'='rsync -aPvh --inplace'
+alias -g 'pg'='ps aux | grep'
+alias -g Hl=' --help |& less -r'
+alias -g L='|less'
+alias -g LL='|& less -r'
+alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+alias -g G='| grep --color=auto'
+
+alias '...'='cd ../../'
+alias '....'='cd ../../../'

@@ -11,3 +11,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+# for HUE maven build
+export MAVEN_OPTS="-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Xmx1586m"
+
+# Golang settings
+export GOPATH=$HOME/workspace/go
+export PATH=$PATH:$GOPATH/bin
