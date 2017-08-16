@@ -279,4 +279,6 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gdf='git diff --no-ext-diff'
   alias gdw='git diff --no-ext-diff --word-diff=color'
   alias gdc='git diff --no-ext-diff --cached'
+  alias gup='git pull --rebase origin "$(git-branch-current 2> /dev/null)"'
+  alias gpd='git push --delete origin "$(git-branch-current 2> /dev/null)"'
 fi

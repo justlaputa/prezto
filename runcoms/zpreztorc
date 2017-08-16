@@ -44,7 +44,6 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'syntax-highlighting' \
   'archive' \
-  'node' \
   'rsync'
 
 #
