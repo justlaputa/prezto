@@ -31,6 +31,7 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'environment' \
+  'homebrew' \
   'terminal' \
   'editor' \
   'history' \
@@ -40,7 +41,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'prompt' \
   'git' \
-  'pacman' \
   'tmux' \
   'osx' \
   'syntax-highlighting' \

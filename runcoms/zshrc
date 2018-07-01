@@ -5,15 +5,17 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# Golang settings
+export GOPATH=$HOME/workspace
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH:$GOPATH/bin
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# Customize to your needs...
-# for HUE maven build
-export MAVEN_OPTS="-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Xmx1586m"
-
-# Golang settings
-export GOPATH=$HOME/workspace/go
-export PATH=$PATH:$GOPATH/bin
