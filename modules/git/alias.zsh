@@ -69,7 +69,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gcR='git reset "HEAD^"'
   alias gcs='git show'
   alias gcsS='git show --pretty=short --show-signature'
-  alias gcl='git-commit-lost'
+  #alias gcl='git-commit-lost'
   alias gcy='git cherry -v --abbrev'
   alias gcY='git cherry -v'
 
@@ -94,7 +94,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   # Fetch (f)
   alias gf='git fetch'
   alias gfa='git fetch --all'
-  alias gfc='git clone'
+  alias gcl='git clone'
   alias gfcr='git clone --recurse-submodules'
   alias gfm='git pull'
   alias gfr='git pull --rebase'
