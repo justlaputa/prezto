@@ -14,10 +14,25 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Source Prezto.
+# -s: file exists and not zero size
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-. ~/.kube/zsh_completion
-. /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# kubectl
+if [[ -s "$HOME/.kube/zsh_completion" ]]; then
+  source $HOME/.kube/zsh_completion
+fi
+
+# gcloud sdk
+if [[ -s "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+fi
+
+# autojump
+if [[ -s /usr/local/etc/profile.d/autojump.sh ]]; then
+  source /usr/local/etc/profile.d/autojump.sh
+fi
+
+export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

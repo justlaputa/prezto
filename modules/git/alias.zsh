@@ -282,4 +282,5 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gup='git pull --rebase origin "$(git-branch-current 2> /dev/null)"'
   alias gpd='git push --delete origin "$(git-branch-current 2> /dev/null)"'
   alias glp='git log --topo-order --graph --pretty=format:"${_git_log_oneline_format}"'
+  alias gupm='git fetch origin master && git rebase origin/master master'
 fi
