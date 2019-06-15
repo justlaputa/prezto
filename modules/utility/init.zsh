@@ -259,3 +259,7 @@ alias -g G='| grep --color=auto'
 
 alias '...'='cd ../../'
 alias '....'='cd ../../../'
+alias 'homet'='ssh -t home tmux'
+alias 'homea'='ssh -t home tmux a'
+alias 'homeoff'='ssh -t home sudo poweroff'
+alias 'vps'='ssh vps2'

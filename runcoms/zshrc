@@ -7,8 +7,9 @@
 
 # Golang settings
 export GOPATH=$HOME/workspace/go
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH:$GOPATH/bin
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+export GCLOUD_SDK=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/make/libexec/gnubin:$PATH:$GOPATH/bin:$GCLOUD_SDK/bin
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/make/libexec/gnuman:$MANPATH
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -29,10 +30,13 @@ if [[ -s "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completio
   source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
   export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
 fi
+export CLOUDSDK_PYTHON=/usr/bin/python
 
 # autojump
 if [[ -s /usr/local/etc/profile.d/autojump.sh ]]; then
   source /usr/local/etc/profile.d/autojump.sh
 fi
 
-export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
