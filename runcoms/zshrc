@@ -7,9 +7,7 @@
 
 # Golang settings
 export GOPATH=$HOME/workspace/go
-export GCLOUD_SDK=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/make/libexec/gnubin:$PATH:$GOPATH/bin:$GCLOUD_SDK/bin
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:/usr/local/opt/make/libexec/gnuman:$MANPATH
+export PATH=$GOPATH/bin:$PATH
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -28,9 +26,10 @@ fi
 # gcloud sdk
 if [[ -s "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]]; then
   source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-  export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+  export GCLOUD_SDK=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+  export PATH=$PATH:$GCLOUD_SDK/bin
+  export CLOUDSDK_PYTHON=/usr/bin/python
 fi
-export CLOUDSDK_PYTHON=/usr/bin/python
 
 # autojump
 if [[ -s /usr/local/etc/profile.d/autojump.sh ]]; then
@@ -39,4 +38,31 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# gnu tools
+GNU_BIN_PATH=""
+GNU_MAN_PATH=""
+
+for P in /usr/local/opt/*/libexec/gnubin; do
+  if [ -z "$GNU_BIN_PATH" ]; then
+    GNU_BIN_PATH=$P
+  else
+    GNU_BIN_PATH=$P:$GNU_BIN_PATH
+  fi
+done
+
+if [ ! -z "$GNU_BIN_PATH" ]; then
+  export PATH=$GNU_BIN_PATH:$PATH
+fi
+
+for P in /usr/local/opt/*/libexec/gnuman; do
+  if [ -z "$GNU_MAN_PATH" ]; then
+    GNU_MAN_PATH=$P
+  else
+    GNU_MAN_PATH=$P:$GNU_MAN_PATH
+  fi
+done
+
+if [ ! -z "$GNU_MAN_PATH" ]; then
+  export MANPATH=$GNU_MAN_PATH:$MANPATH
+fi

@@ -47,8 +47,7 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'autosuggestions' \
   'archive' \
-  'rsync' \
-  'node'
+  'rsync'
 
 #
 # Autosuggestions
