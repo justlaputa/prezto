@@ -76,4 +76,3 @@ alias java11='export JAVA_HOME=$JAVA_11_HOME'
 
 java11
 
-source /Users/han.xiao/Library/Preferences/org.dystroy.broot/launcher/bash/br
