@@ -263,6 +263,8 @@ alias 'homet'='ssh -t home tmux'
 alias 'homea'='ssh -t home tmux a'
 alias 'homeoff'='ssh -t home sudo poweroff'
 alias 'vps'='ssh vps2'
+alias 'vpsmove'='ssh vps2 find ./Downloads/finished -size +100M -name "*.mp4" -exec mv {} ./Downloads/tvshows/ \;'
+alias 'vpsclean'='ssh vps2 trash "./Downloads/tvshows/*"'
 alias 'rm'='echo "This is not the command you are looking for."; false'
 
 ## docker compose
