@@ -13,15 +13,9 @@
 zstyle -s ':prezto:module:git:log:medium' format '_git_log_medium_format' \
     || _git_log_medium_format='%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B'
 zstyle -s ':prezto:module:git:log:oneline' format '_git_log_oneline_format' \
-<<<<<<< HEAD
-  || _git_log_oneline_format='%C(auto)%h -%d %s %C(green)(%cr) %C(bold blue)<%an>'
-zstyle -s ':prezto:module:git:log:brief' format '_git_log_brief_format' \
-  || _git_log_brief_format='%C(auto)%h%d %s%n(%C(green)%cr %C(reset)by %C(bold blue)<%an>%C(reset))'
-=======
     || _git_log_oneline_format='%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n'
 zstyle -s ':prezto:module:git:log:brief' format '_git_log_brief_format' \
     || _git_log_brief_format='%C(green)%h%C(reset) %s%n%C(blue)(%ar by %an)%C(red)%d%C(reset)%n'
->>>>>>> upstream/master
 
 # Status
 zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_submodules' \
@@ -74,15 +68,9 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gcR='git reset "HEAD^"'
   alias gcs='git show'
   alias gcsS='git show --pretty=short --show-signature'
-<<<<<<< HEAD
-  #alias gcl='git-commit-lost'
-  alias gcy='git cherry -v --abbrev'
-  alias gcY='git cherry -v'
-=======
   alias gcl='git-commit-lost'
   alias gcy='git cherry --verbose --abbrev'
   alias gcY='git cherry --verbose'
->>>>>>> upstream/master
 
   # Conflict (C)
   alias gCl='git --no-pager diff --name-only --diff-filter=U'
@@ -283,21 +271,5 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gwc='git clean --dry-run'
   alias gwC='git clean --force'
   alias gwx='git rm -r'
-<<<<<<< HEAD
-  alias gwX='git rm -rf'
-
-  # My alias
-  alias gst='git status'
-  alias gsn='git status --untracked-files=no'
-  alias gau='git add --update'
-  alias gdf='git diff --no-ext-diff'
-  alias gdw='git diff --no-ext-diff --word-diff=color'
-  alias gdc='git diff --no-ext-diff --cached'
-  alias gup='git pull --rebase origin "$(git-branch-current 2> /dev/null)"'
-  alias gpd='git push --delete origin "$(git-branch-current 2> /dev/null)"'
-  alias glp='git log --topo-order --graph --pretty=format:"${_git_log_oneline_format}"'
-  alias gupm='git fetch origin master && git rebase origin/master master'
-=======
   alias gwX='git rm -r --force'
->>>>>>> upstream/master
 fi

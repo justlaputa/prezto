@@ -270,6 +270,9 @@ function noremoteglob {
 }
 
 # My alias
+## common
+alias '...'='cd ../../'
+alias '....'='cd ../../../'
 alias -g 'df'='df -hP | column -t'
 alias -g 'dh'='du -h --max-depth=1 | sort -hr'
 alias -g 'rsync'='rsync -aPvh --inplace'
@@ -280,8 +283,7 @@ alias -g LL='|& less -r'
 alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 alias -g G='| grep --color=auto'
 
-alias '...'='cd ../../'
-alias '....'='cd ../../../'
+## home utils
 alias 'homea'='ssh -t home tmux a'
 alias 'homeoff'='ssh -t home sudo poweroff'
 alias 'homet'='ssh -t home tmux'
@@ -293,3 +295,15 @@ alias 'vprm'='ssh vps2 trash "./Downloads/tvshows/*"'
 alias 'vps'='ssh vps2'
 alias 'vpsmove'='ssh vps2 find ./Downloads/finished -size +100M -name "*.mp4" -exec mv {} ./Downloads/tvshows/ \;'
 alias 'wk'='wakeonlan b8:ae:ed:eb:18:20'
+
+## git
+alias gst='git status'
+alias gsn='git status --untracked-files=no'
+alias gau='git add --update'
+alias gdf='git diff --no-ext-diff'
+alias gdw='git diff --no-ext-diff --word-diff=color'
+alias gdc='git diff --no-ext-diff --cached'
+alias gup='git pull --rebase origin "$(git-branch-current 2> /dev/null)"'
+alias gpd='git push --delete origin "$(git-branch-current 2> /dev/null)"'
+alias glp='git log --topo-order --graph --pretty=format:"${_git_log_oneline_format}"'
+alias gupm='git fetch origin master && git rebase origin/master master'
