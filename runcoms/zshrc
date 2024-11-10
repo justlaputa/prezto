@@ -4,6 +4,8 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
+# brew
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Golang settings
 export GOPATH=$HOME/workspace/go
@@ -18,17 +20,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# kubectl
-if [[ -s "$HOME/.kube/zsh_completion" ]]; then
-  source $HOME/.kube/zsh_completion
-fi
-
 # gcloud sdk
-if [[ -s "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]]; then
-  source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-  export GCLOUD_SDK=/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
-  export PATH=$PATH:$GCLOUD_SDK/bin
-  export CLOUDSDK_PYTHON=/usr/bin/python
+if [[ -s "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]]; then
+  export CLOUDSDK_PYTHON="/opt/homebrew/opt/python@3/libexec/bin/python"
+  source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # autojump
@@ -43,7 +39,7 @@ export NVM_DIR="$HOME/.nvm"
 GNU_BIN_PATH=""
 GNU_MAN_PATH=""
 
-for P in /usr/local/opt/*/libexec/gnubin; do
+for P in /opt/homebrew/opt/*/libexec/gnubin; do
   if [ -z "$GNU_BIN_PATH" ]; then
     GNU_BIN_PATH=$P
   else
@@ -55,7 +51,7 @@ if [ ! -z "$GNU_BIN_PATH" ]; then
   export PATH=$GNU_BIN_PATH:$PATH
 fi
 
-for P in /usr/local/opt/*/libexec/gnuman; do
+for P in /opt/homebrew/opt/*/libexec/gnuman; do
   if [ -z "$GNU_MAN_PATH" ]; then
     GNU_MAN_PATH=$P
   else
@@ -73,13 +69,11 @@ jdk() {
     java -version
 }
 
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_17_HOME=$(/usr/libexec/java_home -v17)
 
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
-alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
 
-java11
+java17
 
 function mmdir() {
   local file=$1
@@ -88,3 +82,8 @@ function mmdir() {
   mkdir -v ${dirname}
   mv -vi "${file}" "${dirname}"
 }
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+eval "$(starship init zsh)"
