@@ -40,6 +40,7 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
+  'gnu-utility' \
   'utility' \
   'completion' \
   'history-substring-search' \
@@ -245,7 +246,7 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'no'
 
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
@@ -258,3 +259,5 @@ zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
 # zstyle ':prezto:module:utility' safe-ops 'yes'
+
+zstyle ':prezto:module:utility:ls' dirs-first 'yes'
