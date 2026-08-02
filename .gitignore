@@ -2,3 +2,6 @@
 *.zwc.old
 modules/*/cache.zsh
 contrib
+# secrets — keep out of version control
+secrets.zsh
+**/secrets.zsh

@@ -103,4 +103,7 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/op
 # Added by Antigravity CLI installer
 export PATH="/Users/laputa/.local/bin:$PATH"
 
+# Load secrets (API keys, tokens) — keep this file out of version control
+[ -f "$HOME/.config/zsh/secrets.zsh" ] && source "$HOME/.config/zsh/secrets.zsh"
+
 eval "$(starship init zsh)"
